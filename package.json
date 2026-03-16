@@ -1,0 +1,32 @@
+{
+  "name": "mcp-app-parity-explorer",
+  "version": "1.0.0",
+  "main": "main.ts",
+  "scripts": {
+    "build": "tsc --noEmit && tsc -p tsconfig.server.json && cross-env INPUT=mcp-app.html vite build && cross-env INPUT=chat.html vite build",
+    "start": "concurrently \"cross-env NODE_ENV=development INPUT=mcp-app.html vite build --watch\" \"cross-env NODE_ENV=development INPUT=chat.html vite build --watch\" \"tsx watch main.ts\"",
+    "start:stdio": "tsx main.ts --stdio"
+  },
+  "keywords": ["mcp", "mcp-app", "parity-mapping"],
+  "author": "ASOS CIT",
+  "license": "ISC",
+  "description": "MCP App PoC — Interactive Parity Mapping Explorer for MSTR-to-PBI analysis",
+  "type": "module",
+  "dependencies": {
+    "@modelcontextprotocol/ext-apps": "^1.2.2",
+    "@modelcontextprotocol/sdk": "^1.27.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.5.0",
+    "concurrently": "^9.2.1",
+    "cross-env": "^10.1.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.0",
+    "vite-plugin-singlefile": "^2.3.2"
+  }
+}

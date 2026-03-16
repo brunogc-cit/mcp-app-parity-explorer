@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parity Explorer Chat</title>
+</head>
+<body>
+  <div id="chat-app">
+    <header id="chat-header">
+      <div class="header-left">
+        <h1>Parity Explorer</h1>
+        <span class="subtitle">MSTR → PBI Migration Analysis</span>
+      </div>
+      <div class="header-right">
+        <span id="status-dot" class="status-dot"></span>
+        <span id="status-text">Ready</span>
+      </div>
+    </header>
+
+    <main id="chat-messages">
+      <div class="welcome-message">
+        <h2>Welcome to Parity Explorer</h2>
+        <p>Ask me about MicroStrategy reports and their Power BI parity status.</p>
+        <div class="suggestions">
+          <button class="suggestion" data-msg="Search for MASTER RECEIPT - Monday Huddle report">Search Monday Huddle report</button>
+          <button class="suggestion" data-msg="Search for reports related to Sales">Search Sales reports</button>
+          <button class="suggestion" data-msg="What reports exist with 'Revenue' in the name?">Find Revenue reports</button>
+        </div>
+      </div>
+    </main>
+
+    <footer id="chat-input-bar">
+      <textarea id="chat-input" placeholder="Ask about a report... (e.g. 'Search for Monday Huddle')" rows="1"></textarea>
+      <button id="send-btn" title="Send">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/>
+        </svg>
+      </button>
+    </footer>
+  </div>
+
+  <script type="module" src="./src/chat.ts"></script>
+</body>
+</html>

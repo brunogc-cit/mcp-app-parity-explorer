@@ -1,0 +1,35 @@
+{
+  "skill_name": "parity-mapping",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "How's our parity mapping looking?",
+      "expected_output": "Runs full dataset analysis via run_mapping.py, presents summary with coverage percentage, confidence distribution, and key risks",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "Run parity mapping for the LIT Report",
+      "expected_output": "Scopes analysis to LIT Report objects (19 items), produces focused Markdown report with 3 metrics and 16 attributes",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Check the mapping for Billed Sales Value, Void Sales Units, and AFS Value",
+      "expected_output": "Filters cache to those 3 specific metrics, runs analysis, presents per-metric confidence with signal breakdown",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Run parity for these 5 reports: LIT Report, WH Capacity, PO Tracker, DC Outbound, Inbound Summary. Give me a separate report for each.",
+      "expected_output": "Produces 5 individual mapping reports plus a summary comparison table",
+      "files": []
+    },
+    {
+      "id": 5,
+      "prompt": "What does the S3 name similarity signal do and why is Void Sales Units only Medium confidence?",
+      "expected_output": "Explains S3 algorithm (normalisation, domain transforms, Levenshtein+Jaccard), explains why Void Sales Units maps to Billed Sales Quantity with temporal penalty reducing confidence",
+      "files": []
+    }
+  ]
+}

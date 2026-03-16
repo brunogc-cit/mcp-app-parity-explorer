@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parity Mapping Explorer</title>
+</head>
+<body>
+  <div class="app">
+    <!-- Header -->
+    <div class="header">
+      <h1>Parity Mapping Explorer</h1>
+      <span class="badge">MCP App PoC</span>
+      <span class="badge">READ-ONLY</span>
+    </div>
+
+    <!-- Search -->
+    <div class="search-bar">
+      <input id="search-input" type="text" placeholder="Search report by name or GUID..." />
+      <button id="search-btn">Search</button>
+    </div>
+
+    <!-- Search Results -->
+    <div id="search-results" class="search-results hidden"></div>
+
+    <!-- Loading -->
+    <div id="loading" class="loading hidden">Analysing parity</div>
+
+    <!-- Dashboard (hidden until analysis runs) -->
+    <div id="dashboard" class="hidden">
+      <!-- KPI Bar -->
+      <div class="kpi-bar">
+        <div class="kpi"><div class="value" id="kpi-total">0</div><div class="label">Total Objects</div></div>
+        <div class="kpi"><div class="value" id="kpi-mapped" style="color:var(--confirmed)">0</div><div class="label">Mapped</div></div>
+        <div class="kpi"><div class="value" id="kpi-coverage" style="color:var(--accent)">0%</div><div class="label">Coverage</div></div>
+        <div class="kpi"><div class="value" id="kpi-confirmed" style="color:var(--confirmed)">0</div><div class="label">Confirmed</div></div>
+        <div class="kpi"><div class="value" id="kpi-unmapped" style="color:var(--low)">0</div><div class="label">Unmapped</div></div>
+      </div>
+
+      <!-- Charts -->
+      <div class="charts">
+        <div class="chart-card">
+          <h3>Confidence Distribution</h3>
+          <canvas id="confidence-chart"></canvas>
+        </div>
+        <div class="chart-card">
+          <h3>Parity Status</h3>
+          <canvas id="parity-chart"></canvas>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="filter-bar">
+        <span class="filter-chip active" data-level="All">All</span>
+        <span class="filter-chip" data-level="Confirmed">Confirmed</span>
+        <span class="filter-chip" data-level="High">High</span>
+        <span class="filter-chip" data-level="Medium">Medium</span>
+        <span class="filter-chip" data-level="Low">Low</span>
+        <span class="filter-chip" data-level="Unmapped">Unmapped</span>
+        <span style="margin-left:auto"></span>
+        <span class="filter-chip" data-type="All">All Types</span>
+        <span class="filter-chip" data-type="Metric">Metrics</span>
+        <span class="filter-chip" data-type="Attribute">Attributes</span>
+      </div>
+
+      <!-- Mapping Table -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th data-sort="name">Name</th>
+              <th data-sort="type">Type</th>
+              <th data-sort="match">PBI Match</th>
+              <th data-sort="score">Score</th>
+              <th data-sort="level">Level</th>
+              <th>Signals</th>
+            </tr>
+          </thead>
+          <tbody id="mapping-tbody"></tbody>
+        </table>
+      </div>
+
+      <!-- Detail Panel -->
+      <div id="detail-panel" class="detail-panel">
+        <h3 id="detail-title">Signal Breakdown</h3>
+        <div class="detail-grid" id="detail-grid"></div>
+        <div class="radar-container">
+          <canvas id="radar-chart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty state -->
+    <div id="empty-state" class="empty">
+      Search for a MicroStrategy report to begin parity analysis
+    </div>
+  </div>
+
+  <script type="module" src="/src/mcp-app.ts"></script>
+</body>
+</html>
